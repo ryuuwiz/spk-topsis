@@ -1,9 +1,9 @@
-<x-layouts.app :title="__('Kriteria Management')">
+<x-layouts.app :title="__('Kriteria')">
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <!-- Header with Add Kriteria Button -->
         <div class="flex items-center justify-between">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
-                {{ __('Kriteria Management') }}
+                {{ __('Kriteria') }}
             </h2>
             <a href="{{ route('kriteria.create') }}" class="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition-colors">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

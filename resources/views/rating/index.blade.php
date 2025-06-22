@@ -1,9 +1,9 @@
-<x-layouts.app :title="__('Rating Management')">
+<x-layouts.app :title="__('Rating')">
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <!-- Header with Add Rating Buttons -->
         <div class="flex items-center justify-between">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
-                {{ __('Rating Management') }}
+                {{ __('Rating') }}
             </h2>
             <div class="flex space-x-2">
                 <a href="{{ route('rating.createBatch') }}" class="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-700 text-white text-sm font-medium rounded-md transition-colors">
