@@ -66,7 +66,7 @@ class KriteriaController extends Controller
         if ($existingWeightsSum + $validated['bobot'] > 1) {
             return back()
                 ->withInput()
-                ->withErrors(['bobot' => 'The sum of all criteria weights cannot exceed 1. Current sum: ' . $existingWeightsSum]);
+                ->withErrors(['bobot' => 'Total bobot tidak bisa lebih dari 1. Total saat ini: ' . $existingWeightsSum]);
         }
 
         Kriteria::create($validated);
@@ -109,7 +109,7 @@ class KriteriaController extends Controller
         if ($existingWeightsSum + $validated['bobot'] > 1) {
             return back()
                 ->withInput()
-                ->withErrors(['bobot' => 'The sum of all criteria weights cannot exceed 1. Current sum (excluding this criterion): ' . $existingWeightsSum]);
+                ->withErrors(['bobot' => 'Total bobot tidak bisa lebih dari 1. Total saat ini: ' . $existingWeightsSum]);
         }
 
         $kriterium->update($validated);
