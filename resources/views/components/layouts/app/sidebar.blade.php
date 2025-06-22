@@ -13,13 +13,18 @@
             </a>
 
             <flux:navlist variant="outline">
-                <flux:navlist.group :heading="__('')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item icon="users" :href="route('users.index')" :current="request()->routeIs('users.*')" wire:navigate>{{ __('User') }}</flux:navlist.item>
+                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+
+                {{-- SPK --}}
+                <flux:navlist.group :heading="__('SPK')" class="grid">
                     <flux:navlist.item icon="clipboard-document-list" :href="route('kriteria.index')" :current="request()->routeIs('kriteria.*')" wire:navigate>{{ __('Kriteria') }}</flux:navlist.item>
                     <flux:navlist.item icon="document-text" :href="route('alternatif.index')" :current="request()->routeIs('alternatif.index') || request()->routeIs('alternatif.create') || request()->routeIs('alternatif.edit') || request()->routeIs('alternatif.show')" wire:navigate>{{ __('Alternatif') }}</flux:navlist.item>
                     <flux:navlist.item icon="star" :href="route('rating.index')" :current="request()->routeIs('rating.*')" wire:navigate>{{ __('Rating') }}</flux:navlist.item>
-{{--                    <flux:navlist.item icon="chart-bar" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Rankings') }}</flux:navlist.item>--}}
+                </flux:navlist.group>
+
+                {{-- User --}}
+                <flux:navlist.group :heading="__('Manajemen User')" class="grid">
+                    <flux:navlist.item icon="users" :href="route('users.index')" :current="request()->routeIs('users.*')" wire:navigate>{{ __('User') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 

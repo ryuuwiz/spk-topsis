@@ -1,4 +1,6 @@
 <x-layouts.app :title="__('Dashboard')">
+    @include('partials.head')
+
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <div class="grid auto-rows-min gap-2 md:grid-cols-2">
             <h2 class="text-xl font-bold text-gray-900 dark:text-white">
@@ -11,7 +13,7 @@
             <div class="mb-4">
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ __('Peringkat') }}</h3>
                 <p class="text-gray-600 dark:text-gray-400">
-                    {{ __('Tabel ini menunjukan nilai preferensi karyawan teladan menggunakan metode TOPSIS') }}
+                    {{ __('Tabel ini menunjukan nilai preferensi karyawan teladan menggunakan metode') }} <span class="font-semibold">TOPSIS</span>
                 </p>
             </div>
 
@@ -31,7 +33,7 @@
                                     {{ __('Alternatif') }}
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                                    {{ __('Skor TOPSIS') }}
+                                    {{ __('Skor') }}
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                                     {{ __('Actions') }}

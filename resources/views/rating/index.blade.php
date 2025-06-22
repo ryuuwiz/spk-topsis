@@ -3,14 +3,14 @@
         <!-- Header with Add Rating Buttons -->
         <div class="flex items-center justify-between">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
-                {{ __('Rating') }}
+                {{ __('Rating (Nilai Alternatif)') }}
             </h2>
             <div class="flex space-x-2">
                 <a href="{{ route('rating.createBatch') }}" class="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-700 text-white text-sm font-medium rounded-md transition-colors">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                     </svg>
-                    {{ __('Add Ratings') }}
+                    {{ __('Add Rating') }}
                 </a>
             </div>
         </div>
