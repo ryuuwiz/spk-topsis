@@ -28,7 +28,7 @@ class UserController extends Controller
         // Sort functionality
         $sortBy = $request->get('sort_by', 'created_at');
         $sortDirection = $request->get('sort_direction', 'desc');
-        
+
         if (in_array($sortBy, ['name', 'email', 'created_at'])) {
             $query->orderBy($sortBy, $sortDirection);
         }
@@ -92,12 +92,21 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'email_verified' => ['nullable', 'boolean'],
         ]);
 
         $user->update([
             'name' => $validated['name'],
             'email' => $validated['email'],
         ]);
+
+        // Handle email verification status
+        if ($request->has('email_verified')) {
+            $user->email_verified_at = now();
+        } else {
+            $user->email_verified_at = null;
+        }
+        $user->save();
 
         if ($request->filled('password')) {
             $user->update([
@@ -125,4 +134,4 @@ class UserController extends Controller
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully.');
     }
-} 
+}

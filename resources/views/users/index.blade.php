@@ -13,48 +13,6 @@
             </a>
         </div>
 
-        <!-- Search and Filter Section -->
-        <div class="bg-white dark:bg-zinc-800 rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
-            <form method="GET" action="{{ route('users.index') }}" class="flex gap-4 items-end">
-                <div class="flex-1">
-                    <label for="search" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Search</label>
-                    <input type="text" name="search" id="search" value="{{ request('search') }}" 
-                           class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-700 dark:text-white"
-                           placeholder="Search by name or email...">
-                </div>
-                <div>
-                    <label for="sort_by" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Sort By</label>
-                    <select name="sort_by" id="sort_by" 
-                            class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-700 dark:text-white">
-                        <option value="created_at" {{ request('sort_by') == 'created_at' ? 'selected' : '' }}>Created Date</option>
-                        <option value="name" {{ request('sort_by') == 'name' ? 'selected' : '' }}>Name</option>
-                        <option value="email" {{ request('sort_by') == 'email' ? 'selected' : '' }}>Email</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="sort_direction" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Direction</label>
-                    <select name="sort_direction" id="sort_direction" 
-                            class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-700 dark:text-white">
-                        <option value="desc" {{ request('sort_direction') == 'desc' ? 'selected' : '' }}>Descending</option>
-                        <option value="asc" {{ request('sort_direction') == 'asc' ? 'selected' : '' }}>Ascending</option>
-                    </select>
-                </div>
-                <div class="flex gap-2">
-                    <button type="submit" class="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition-colors">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                        {{ __('Search') }}
-                    </button>
-                    <a href="{{ route('users.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-500 hover:bg-gray-700 text-white text-sm font-medium rounded-md transition-colors">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                        {{ __('Clear') }}
-                    </a>
-                </div>
-            </form>
-        </div>
 
         <!-- Success/Error Messages -->
         @if(session('success'))
@@ -117,7 +75,7 @@
                                         <a href="{{ route('users.show', $user) }}" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300">View</a>
                                         <a href="{{ route('users.edit', $user) }}" class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300">Edit</a>
                                         @if($user->id !== auth()->id())
-                                            <form action="{{ route('users.destroy', $user) }}" method="POST" class="inline" 
+                                            <form action="{{ route('users.destroy', $user) }}" method="POST" class="inline"
                                                   onsubmit="return confirm('Are you sure you want to delete this user?')">
                                                 @csrf
                                                 @method('DELETE')
@@ -146,4 +104,4 @@
             </div>
         @endif
     </div>
-</x-layouts.app> 
+</x-layouts.app>

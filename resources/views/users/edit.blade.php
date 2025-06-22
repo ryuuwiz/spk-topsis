@@ -1,3 +1,4 @@
+
 <x-layouts.app :title="__('Edit User') . ': ' . $user->name">
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <!-- Header -->
@@ -27,7 +28,7 @@
                     <input id="name" type="text" name="name" value="{{ old('name', $user->name) }}" required autofocus
                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-700 dark:text-white @error('name') border-red-500 @enderror">
                     @error('name')
-                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -39,8 +40,28 @@
                     <input id="email" type="email" name="email" value="{{ old('email', $user->email) }}" required
                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-700 dark:text-white @error('email') border-red-500 @enderror">
                     @error('email')
-                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                     @enderror
+                </div>
+
+                <!-- Email Verified -->
+                <div class="mb-4">
+                    <div class="flex items-center">
+                        <input id="email_verified" type="checkbox" name="email_verified" value="1"
+                               {{ old('email_verified', $user->email_verified_at) ? 'checked' : '' }}
+                               class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 dark:border-gray-600 rounded dark:bg-zinc-700">
+                        <label for="email_verified" class="ml-2 block text-sm font-medium text-gray-700 dark:text-gray-300">
+                            {{ __('Email Verified') }}
+                        </label>
+                    </div>
+                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                        {{ __('Check this box to mark the email as verified.') }}
+                        @if($user->email_verified_at)
+                            {{ __('Currently verified on') }} {{ $user->email_verified_at->format('M d, Y') }}.
+                        @else
+                            {{ __('Currently not verified.') }}
+                        @endif
+                    </p>
                 </div>
 
                 <!-- Password (Optional) -->
@@ -51,7 +72,7 @@
                     <input id="password" type="password" name="password"
                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-zinc-700 dark:text-white @error('password') border-red-500 @enderror">
                     @error('password')
-                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+                    <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -105,4 +126,4 @@
             </form>
         </div>
     </div>
-</x-layouts.app> 
+</x-layouts.app>
