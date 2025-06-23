@@ -1,5 +1,6 @@
 <x-layouts.app :title="__('Dashboard')">
     @include('partials.head')
+    @inject('topsisService', 'App\Services\TopsisService')
 
     <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
         <div class="grid auto-rows-min gap-2 md:grid-cols-2">
@@ -19,7 +20,7 @@
             </div>
 
             @php
-            $rankings = App\Models\Alternatif::calculateTopsisRanking();
+            $rankings = $topsisService->hitungTopsis();
             @endphp
 
             @if(count($rankings) > 0)
@@ -51,7 +52,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <span class="text-sm font-medium text-gray-900 dark:text-white">
-                                        {{ $ranking['rank'] }}
+                                        {{ $ranking['peringkat'] }}
                                         @if($loop->first)
                                         <span
                                             class="ml-2 px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Karyawan
@@ -65,7 +66,7 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900 dark:text-white">{{ number_format($ranking['score'],
+                                <div class="text-sm text-gray-900 dark:text-white">{{ number_format($ranking['skor'],
                                     4) }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">

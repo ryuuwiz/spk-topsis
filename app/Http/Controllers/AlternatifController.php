@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
+use App\Services\TopsisService;
 use Illuminate\Http\Request;
 
 class AlternatifController extends Controller
@@ -101,13 +102,5 @@ class AlternatifController extends Controller
 
         return redirect()->route('alternatif.index')
             ->with('success', 'Alternatif deleted successfully.');
-    }
-
-    /**
-     * Display the TOPSIS rankings of all alternatives.
-     */
-    public function ranking()
-    {
-        return view('alternatif.ranking');
     }
 }
