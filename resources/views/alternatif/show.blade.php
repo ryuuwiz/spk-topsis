@@ -84,15 +84,15 @@
                             <div>
                                 <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Rank</dt>
                                 <dd class="text-sm font-bold text-gray-900 dark:text-white">
-                                    {{ $topsisRank['rank'] }}
-                                    @if($topsisRank['rank'] == 1)
+                                    {{ $topsisRank['peringkat'] }}
+                                    @if($topsisRank['peringkat'] == 1)
                                         <span class="ml-2 px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">Top Ranked</span>
                                     @endif
                                 </dd>
                             </div>
                             <div>
                                 <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">TOPSIS Score</dt>
-                                <dd class="text-sm text-gray-900 dark:text-white">{{ number_format($topsisRank['score'], 4) }}</dd>
+                                <dd class="text-sm text-gray-900 dark:text-white">{{ number_format($topsisRank['skor'], 4) }}</dd>
                             </div>
                         </dl>
                     @else
