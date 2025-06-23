@@ -28,7 +28,7 @@ class Alternatif extends Model
      *
      * @return array
      */
-    public static function calculateTopsisRanking()
+    public static function calculateTopsisRanking(): array
     {
         // Get all alternatives, criteria, and ratings
         $alternatives = self::all();
@@ -167,7 +167,7 @@ class Alternatif extends Model
      *
      * @return array|null
      */
-    public function getTopsisRank()
+    public function getTopsisRank(): ?array
     {
         $rankings = self::calculateTopsisRanking();
 
