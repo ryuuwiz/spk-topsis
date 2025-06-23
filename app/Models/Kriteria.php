@@ -26,7 +26,7 @@ class Kriteria extends Model
     /**
      * @return HasMany
      */
-    public function rating()
+    public function rating(): HasMany
     {
         return $this->hasMany(Rating::class);
     }
