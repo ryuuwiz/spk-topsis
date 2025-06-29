@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
-use App\Services\TopsisService;
 use Illuminate\Http\Request;
 
 class AlternatifController extends Controller
@@ -20,7 +19,7 @@ class AlternatifController extends Controller
             $search = $request->search;
             $query->where(function ($q) use ($search) {
                 $q->where('nama', 'like', "%{$search}%")
-                  ->orWhere('deskripsi', 'like', "%{$search}%");
+                    ->orWhere('deskripsi', 'like', "%{$search}%");
             });
         }
 
